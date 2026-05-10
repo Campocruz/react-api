@@ -6,6 +6,7 @@ export default function AppMain({ actressesApi, actorsApi }) {
 
   const [actors, setActors] = useState([]);
   const [actresses, setActresses] = useState([]);
+  const completeList = actors?.concat(actresses);
 
   function getActors(url) {
     fetch(url)
@@ -22,27 +23,23 @@ export default function AppMain({ actressesApi, actorsApi }) {
   useEffect(() => { getActors(actorsApi); getActresses(actressesApi) }, [])
 
   return (
-    <>
-      <div className="container">
-        <div className="row mt-3">
-          <div className="col-4">
-            <div>
-              <MainRenderList titleText={'Attori'} actorsList={actors} />
-              <div>
-                <MainRenderList titleText={'Attrici'} actorsList={actresses} />
-              </div>
-            </div>
+    <div className="container">
+      <div className="row mt-3">
+        <div className="col-4">
+          <MainRenderList titleText={'Attori'} actorsList={actors} />
+          <MainRenderList titleText={'Attrici'} actorsList={actresses} />
+          <MainRenderList titleText={'tutto'} actorsList={completeList} />
+        </div>
+        <div className="col-8">
+          <div className="text-center">
+            <h3>Album attori</h3>
           </div>
-          <div className="col-8">
-            <div className="text-center">
-              <h3>Album attori</h3>
-            </div>
-            <div>
-              <MainRenderCard actors={actors} />
-            </div>
+          <div>
+            <MainRenderCard actors={actors} />
+            <MainRenderCard actors={actresses} />
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
