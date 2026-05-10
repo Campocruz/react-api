@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import MainRenderList from "./MainRenderList";
+import MainRenderCard from "./MainRenderCard";
 
 export default function AppMain({ actressesApi, actorsApi }) {
 
@@ -37,29 +38,7 @@ export default function AppMain({ actressesApi, actorsApi }) {
               <h3>Album attori</h3>
             </div>
             <div>
-              <div className="row">
-                <div className="col-6">
-                  <div className="card">
-                    <div className="card-header">
-                      <h3>{actors[0]?.name}</h3>
-                    </div>
-                    <div className="card-body">
-                      <div className="">
-                        <img className="card-img-top" src={actors[0]?.image} alt={actors[0]?.image} />
-                      </div>
-                    </div>
-                    <div className="card-footer">
-                      <ul className="mt-1">
-                        <li>Anno di nascita {actors[0]?.birth_year}</li>
-                        <li>Nazionalità: {actors[0]?.nationality}</li>
-                        <li>Riconoscimenti: {actors[0]?.awards.map((aword, index) => (<span key={index}>{aword}; </span>))}</li>
-                      </ul>
-                      <hr />
-                      <p>{actors[0]?.biography}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <MainRenderCard actors={actors[10]} />
             </div>
           </div>
         </div>
