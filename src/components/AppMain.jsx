@@ -41,7 +41,21 @@ export default function AppMain({ actressesApi, actorsApi }) {
                 <div className="col-6">
                   <div className="card">
                     <div className="card-header">
-                      <h3>Nome Attore</h3>
+                      <h3>{actors[0]?.name}</h3>
+                    </div>
+                    <div className="card-body">
+                      <div className="">
+                        <img className="card-img-top" src={actors[0]?.image} alt={actors[0]?.image} />
+                      </div>
+                    </div>
+                    <div className="card-footer">
+                      <ul className="mt-1">
+                        <li>Anno di nascita {actors[0]?.birth_year}</li>
+                        <li>Nazionalità: {actors[0]?.nationality}</li>
+                        <li>Riconoscimenti: {actors[0]?.awards.map((aword, index) => (<span key={index}>{aword}; </span>))}</li>
+                      </ul>
+                      <hr />
+                      <p>{actors[0]?.biography}</p>
                     </div>
                   </div>
                 </div>
