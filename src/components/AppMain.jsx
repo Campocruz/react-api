@@ -38,7 +38,7 @@ export default function AppMain({ actressesApi, actorsApi }) {
               <h3>Album attori</h3>
             </div>
             <div>
-              <MainRenderCard actors={actors[10]} />
+              <MainRenderCard actors={actors} />
             </div>
           </div>
         </div>
